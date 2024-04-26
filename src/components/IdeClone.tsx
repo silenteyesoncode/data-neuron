@@ -10,7 +10,7 @@ const Mydrag = (): JSX.Element => {
     splitterProps: terminalDragBarProps
   } = useResizable({
     axis: "y",
-    initial: 150,
+    initial: 250,
     min: 50,
     reverse: true
   });
@@ -20,7 +20,7 @@ const Mydrag = (): JSX.Element => {
     splitterProps: fileDragBarProps
   } = useResizable({
     axis: "x",
-    initial: 250,
+    initial: 500,
     min: 50
   });
   const {
@@ -41,25 +41,10 @@ const Mydrag = (): JSX.Element => {
       }
     >
       <div className={"flex grow"}>
-        <div
-          className={cn("shrink-0 contents", isFileDragging && "dragging")}
-          style={{ width: fileW }}
-        >
-          File Tree
-        </div>
+        {Component1(isFileDragging, fileW)}
         <SampleSplitter isDragging={isFileDragging} {...fileDragBarProps} />
         <div className={"flex grow"}>
-          <div className={"grow bg-darker contents"}>Editor</div>
-          <SampleSplitter
-            isDragging={isPluginDragging}
-            {...pluginDragBarProps}
-          />
-          <div
-            className={cn("shrink-0 contents", isPluginDragging && "dragging")}
-            style={{ width: pluginW }}
-          >
-            Plugin
-          </div>
+          <div className={"grow bg-darker contents"}>Component - 2</div>
         </div>
       </div>
       <SampleSplitter
@@ -67,17 +52,32 @@ const Mydrag = (): JSX.Element => {
         isDragging={isTerminalDragging}
         {...terminalDragBarProps}
       />
-      <div
-        className={cn(
-          "shrink-0 bg-darker contents",
-          isTerminalDragging && "dragging"
-        )}
-        style={{ height: terminalH }}
-      >
-        Terminal
-      </div>
+      {Component2(isTerminalDragging, terminalH)}
     </div>
   );
 };
 
 export default Mydrag;
+
+
+function Component2(isTerminalDragging: boolean, terminalH: number) {
+  return <div
+    className={cn(
+      "shrink-0 bg-darker contents",
+      isTerminalDragging && "dragging"
+    )}
+    style={{ height: terminalH }}
+  >
+    Component - 3
+  </div>;
+}
+
+function Component1(isFileDragging: boolean, fileW: number) {
+  return <div
+    className={cn("shrink-0 contents", isFileDragging && "dragging")}
+    style={{ width: fileW }}
+  >
+    Component - 1
+  </div>;
+}
+
