@@ -31,9 +31,9 @@ const Mydrag = (): JSX.Element => {
 
   // State and props for resizing Component - 2 (axis: x)
   const {
-    isDragging: isPluginDragging,
-    position: pluginW,
-    splitterProps: pluginDragBarProps
+    // isDragging: isPluginDragging,
+    // position: pluginW,
+    // splitterProps: pluginDragBarProps
   } = useResizable({
     axis: "x",
     initial: 200, // Initial width of Component - 2
