@@ -29,17 +29,17 @@ const Mydrag = (): JSX.Element => {
     reverse: true // Reverse resizing direction
   });
 
-  // State and props for resizing Component - 2 (axis: x)
-  const {
-    isDragging: isPluginDragging,
-    position: pluginW,
-    splitterProps: pluginDragBarProps
-  } = useResizable({
-    axis: "x",
-    initial: 200, // Initial width of Component - 2
-    min: 50, // Minimum width of Component - 2
-    reverse: true // Reverse resizing direction
-  });
+  // // State and props for resizing Component - 2 (axis: x)
+  // const {
+  //   isDragging: isPluginDragging,
+  //   position: pluginW,
+  //   splitterProps: pluginDragBarProps
+  // } = useResizable({
+  //   axis: "x",
+  //   initial: 200, // Initial width of Component - 2
+  //   min: 50, // Minimum width of Component - 2
+  //   reverse: true // Reverse resizing direction
+  // });
 
   return (
     <div
