@@ -1,0 +1,16 @@
+/* MyResizableComponent.css */
+
+.resizable-content {
+  position: relative;
+  border: 2px dashed #ccc;
+  overflow: hidden; /* Ensure content doesn't overflow outside the resizable area */
+}
+
+.content {
+  width: 80%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
