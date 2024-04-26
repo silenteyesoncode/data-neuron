@@ -13,7 +13,7 @@ const Mydrag = (): JSX.Element => {
     splitterProps: fileDragBarProps
   } = useResizable({
     axis: "x",
-    initial: 500, // Initial width of Component - 1
+    initial: 1200, // Initial width of Component - 1
     min: 50 // Minimum width of Component - 1
   });
 

@@ -1,14 +1,21 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
+import firebase from "firebase/compat/app"; // Change import statement
+import "firebase/compat/firestore"; // Change import statement
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDOXk9GZZS9qpVeVGpZYI8HWjy0EH6kWaE",
-  authDomain: "mynewsscrap.firebaseapp.com",
-  projectId: "mynewsscrap",
-  storageBucket: "mynewsscrap.appspot.com",
-  messagingSenderId: "483322562801",
-  appId: "1:483322562801:web:16285ed3b784d8b25c8150",
-  measurementId: "G-59SXR4L0LS"
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id",
+  measurementId: "your-measurement-id"
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const db = firebase.firestore();
+
+export { db };

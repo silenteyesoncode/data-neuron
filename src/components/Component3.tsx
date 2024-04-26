@@ -11,7 +11,8 @@ export function Component3(isTerminalDragging: boolean, terminalH: number) {
       )}
       style={{ height: terminalH }}
     >
-      Component - 3
+     Mayank kumar 
+     
     </div>
   );
 }
