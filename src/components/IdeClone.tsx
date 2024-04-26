@@ -1,7 +1,9 @@
 import React from "react";
 import SampleSplitter from "./SampleSplitter";
 import { useResizable } from "react-resizable-layout";
-import { cn } from "../utils/cn";
+import { Component1 }  from "./Component1";
+import { Component3 } from "./Component3";
+import { Component2 } from "./Component2";
 
 const Mydrag = (): JSX.Element => {
   // State and props for resizing Component - 1 (axis: x)
@@ -52,9 +54,7 @@ const Mydrag = (): JSX.Element => {
         {/* Splitter for Component - 1 */}
         <SampleSplitter isDragging={isFileDragging} {...fileDragBarProps} />
         {/* Component - 2 */}
-        <div className={"flex grow"}>
-          <div className={"grow bg-darker contents"}>Component - 2</div>
-        </div>
+        {Component2()}
       </div>
       {/* Splitter for resizing vertically between Component - 2 and Component - 3 */}
       <SampleSplitter
@@ -68,31 +68,7 @@ const Mydrag = (): JSX.Element => {
   );
 };
 
-// Function component for rendering Component - 3
-function Component3(isTerminalDragging: boolean, terminalH: number) {
-  return (
-    <div
-      className={cn(
-        "shrink-0 bg-darker contents",
-        isTerminalDragging && "dragging"
-      )}
-      style={{ height: terminalH }}
-    >
-      Component - 3
-    </div>
-  );
-}
-
-// Function component for rendering Component - 1
-function Component1(isFileDragging: boolean, fileW: number) {
-  return (
-    <div
-      className={cn("shrink-0 contents", isFileDragging && "dragging")}
-      style={{ width: fileW }}
-    >
-      Component - 1
-    </div>
-  );
-}
-
 export default Mydrag;
+
+
+
