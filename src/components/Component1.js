@@ -26,6 +26,8 @@ export function Component1(isFileDragging, fileW) {
 
   const [tableData, setTableData] = useState([]);
   const [formData, setFormData] = useState({ id: "", name: "", age: "" });
+  const [addCount, setAddCount] = useState(0); 
+  const [editCount, setEditCount] = useState(0); 
 
   useEffect(() => {
     const unsubscribe = db.collection("tableData").onSnapshot((snapshot) => {
@@ -65,7 +67,7 @@ export function Component1(isFileDragging, fileW) {
     setFormData({ ...formData, [name]: value });
   };
 
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -75,12 +77,14 @@ export function Component1(isFileDragging, fileW) {
           age: formData.age
         });
         console.log("Data updated successfully!");
+        setEditCount(editCount + 1); // Increment the Edit count
       } else {
         await db.collection("tableData").add({
           name: formData.name,
           age: formData.age
         });
         console.log("Data added successfully!");
+        setAddCount(addCount + 1); // Increment the Add count
       }
       setFormData({ id: "", name: "", age: "" });
     } catch (error) {
@@ -161,6 +165,11 @@ export function Component1(isFileDragging, fileW) {
           {formData.id ? "Edit" : "Add"}
         </button>
       </form>
+
+      {/* Display the counts */}
+      <div style={{ marginTop: '20px' }}>
+        Add Count: {addCount}, Edit Count: {editCount}
+      </div>
 
     </div>
   );
